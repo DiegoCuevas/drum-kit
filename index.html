@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kit-drum</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body{
+      background-image: url("./sounds/fondo-pokemon.png");
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mx-auto h-auto h-screen flex items-center justify-center">
+    <div class="keys flex flex-row justify-center">
+      <div data-key="65" class="flex flex-col items-center mx-4"">
+        <kbd class="flex justify-center items-center w-8 h-8 border border-black">A</kbd>
+        <span class="sound">charmander</span>
+      </div>
+      <div data-key="83" class="flex flex-col items-center mx-4"">
+        <kbd class="flex justify-center items-center w-8 h-8 border border-black">S</kbd>
+        <span class="sound">pikachu</span>
+      </div>
+      <div data-key="68" class="flex flex-col items-center mx-4">
+        <kbd class="flex justify-center items-center w-8 h-8 border border-black">D</kbd>
+        <span class="sound">psyduck</span>
+      </div>
+      <div data-key="70" class="flex flex-col items-center mx-4">
+        <kbd class="flex justify-center items-center w-8 h-8 border border-black">F</kbd>
+        <span class="sound">squirtle</span>
+      </div>
+      <div data-key="71" class="flex flex-col items-center mx-4"">
+        <kbd class="flex justify-center items-center w-8 h-8 border border-black">G</kbd>
+        <span class="sound">wobbuffet</span>
+      <!-- </div>
+      <div data-key="72" class="key">
+        <kbd>H</kbd>
+        <span class="sound">ride</span>
+      </div>
+      <div data-key="74" class="key">
+        <kbd>J</kbd>
+        <span class="sound">snare</span>
+      </div>
+      <div data-key="75" class="key">
+        <kbd>K</kbd>
+        <span class="sound">tom</span>
+      </div>
+      <div data-key="76" class="key">
+        <kbd>L</kbd>
+        <span class="sound">tink</span>
+      </div> -->
+    </div>
+
+  </div>
+
+  <audio data-key="65" src="./sounds/charmander_call.mp3"></audio>
+  <audio data-key="83" src="./sounds/pikachu.mp3"></audio>
+  <audio data-key="68" src="./sounds/psyduck_.mp3"></audio>
+  <audio data-key="70" src="./sounds/squirtle.mp3"></audio>
+  <audio data-key="71" src="./sounds/wobbuffet.mp3"></audio>
+  <!-- <audio data-key="72" src=""></audio>
+  <audio data-key="74" src=""></audio>
+  <audio data-key="75" src=""></audio>
+  <audio data-key="76" src=""></audio> -->
+
+  <script>
+    window.addEventListener('keydown', function(event){
+      const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`)
+      if(!audio) return;
+      audio.play();
+    })
+  </script>
+</body>
+</html>
